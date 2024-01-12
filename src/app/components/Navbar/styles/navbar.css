@@ -1,0 +1,307 @@
+.main {
+  z-index: 999;
+  width: 100vw;
+  transition: all;
+  transition-duration: 400ms;
+  height: 11.204vh;
+  background: var(--Background, #28196a);
+  display: flex;
+  justify-content: space-between;
+  padding: 0px 40px 0px 40px;
+  align-items: center;
+}
+.main.expanded {
+  transition: all;
+  transition-duration: 400ms;
+  height: 45vh;
+}
+.main .innovate-icon {
+  position: absolute;
+  top: 8%;
+  width: 10.321vw;
+  height: 7.41vh;
+  left: 3.5416vw;
+  bottom: 1.8518vh;
+  cursor: pointer;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+.main .links-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2vw;
+}
+.main .links-section .navlinks {
+  display: flex;
+  width: 23.2872vw;
+  height: 2.2222vh;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 2.8vw;
+  flex-shrink: 0;
+}
+.main .links-section .navlinks .nav-tags {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: #fff;
+  /* P 1 Semibold */
+  font-family: "Poppins";
+  font-size: 0.9375vw;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 1.6666vh; /* 100% */
+}
+.main .links-section button {
+  border: none;
+  outline: none;
+}
+.main .links-section .login-button:hover {
+  background: #ff5082;
+  transition: all;
+  transition-duration: 400ms;
+}
+.main .links-section .login-button {
+  display: flex;
+  width: 14vw;
+  height: 5vh;
+  padding: 17px 20px;
+  cursor: pointer;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+  border-radius: 10px;
+  background: var(--Button, #5e42bb);
+  color: var(--Text-White, #ede7ff);
+  text-align: center;
+  leading-trim: both;
+  text-edge: cap;
+  font-family: "Poppins";
+  font-size: 0.9375vw;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 1.6666vh; /* 100% */
+}
+.main .hamburgerMenu {
+  display: flex;
+  align-items: center;
+  position: absolute;
+  top: 30%;
+  right: 10%;
+  cursor: pointer;
+}
+.main .hamburgerMenu .closeIcon {
+  margin-top: 2px;
+  margin-left: -4px;
+  position: absolute;
+  right: 24%;
+  top: 26%;
+  height: 20px;
+  width: 20px;
+}
+.main .menu-items .mobileMenu {
+  transition: all;
+  transition-duration: 400ms;
+  cursor: pointer;
+  position: absolute;
+  top: 120%;
+  left: 40%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 20px;
+}
+.main .menu-items .mobileMenu .mobileNavLink {
+  transition: all;
+  transition-duration: 400ms;
+  cursor: pointer;
+  all: unset;
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: #fff;
+  /* P 1 Semibold */
+  font-family: "Poppins";
+  font-size: 2vw;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 1.6666vh; /* 100% */
+}
+.main .menu-items .mobileMenu .resp-button {
+  font-size: 1.4vw;
+  width: 22vw;
+}
+
+@media (min-width: 770px) {
+  .main .links-section {
+    position: absolute;
+    right: 3%;
+  }
+  .main .hamburgerMenu {
+    display: none;
+  }
+}
+@media (min-width: 769px) {
+  .main .hamburgerMenu {
+    display: none;
+  }
+  .main .menu-items {
+    display: none;
+  }
+}
+@media (max-width: 768px) {
+  .main .links-section {
+    display: none;
+  }
+}
+@media (max-width: 769px) and (max-height: 361px) {
+  .main {
+    height: 13vh;
+  }
+}
+@media (max-width: 481px) {
+  .main {
+    height: 9vh;
+    transition: all;
+    transition-duration: 400ms;
+  }
+  .main.expanded {
+    transition: all;
+    transition-duration: 400ms;
+    height: 27vh;
+  }
+  .main .innovate-icon {
+    height: 6.5vh;
+    width: 33vw;
+  }
+  .main .links-section .navlinks {
+    gap: 1vw;
+  }
+  .main .menu-items .mobileMenu {
+    left: 17%;
+    top: 90%;
+    gap: 20px;
+  }
+  .main .menu-items .mobileMenu .mobileNavLink {
+    font-size: 5vw;
+  }
+  .main .menu-items .mobileMenu .resp-button {
+    border-radius: 5px;
+    font-size: 5vw;
+    width: 65vw;
+    height: 4.5vh;
+  }
+}
+@media (min-width: 481px) and (max-width: 768px) {
+  .main {
+    height: 9vh;
+    transition: all;
+    transition-duration: 400ms;
+  }
+  .main.expanded {
+    transition: all;
+    transition-duration: 400ms;
+    height: 25vh;
+  }
+  .main .innovate-icon {
+    height: 6.5vh;
+    width: 33vw;
+  }
+  .main .links-section .navlinks {
+    gap: 1vw;
+  }
+  .main .menu-items .mobileMenu {
+    left: 17%;
+    top: 90%;
+    gap: 20px;
+  }
+  .main .menu-items .mobileMenu .mobileNavLink {
+    font-size: 5vw;
+  }
+  .main .menu-items .mobileMenu .resp-button {
+    border-radius: 5px;
+    font-size: 5vw;
+    width: 65vw;
+    height: 4.5vh;
+  }
+}
+@media (max-width: 415px) {
+  .main .menu-items .mobileMenu {
+    left: 17.5%;
+  }
+}
+@media (max-width: 321px) {
+  .main.expanded {
+    transition: all;
+    transition-duration: 400ms;
+    height: 30.5vh;
+  }
+}
+@media (min-width: 1023px) and (max-height: 1367px) {
+  .main {
+    height: 7.2vh;
+  }
+  .main .innovate-icon {
+    height: 5vh;
+    width: 18vw;
+  }
+  .main .links-section .navlinks {
+    display: flex;
+    align-items: center;
+  }
+  .main .links-section .navlinks .nav-tags {
+    font-size: 1.4vw;
+  }
+  .main .links-section .login-button {
+    height: 3.5vh;
+    width: 18.5vw;
+    font-size: 1.4vw;
+  }
+}
+@media (min-width: 768px) and (max-height: 1024px) {
+  .main.expanded {
+    height: 22vh;
+  }
+  .main .hamburgerMenu {
+    top: 23%;
+  }
+  .main .menu-items .mobileMenu {
+    left: 32%;
+    top: 70%;
+  }
+  .main .menu-items .mobileMenu .mobileNavLink {
+    font-size: 2.8vw;
+  }
+  .main .menu-items .mobileMenu .resp-button {
+    height: 4vh;
+    width: 35vw;
+    font-size: 2.8vw;
+  }
+}
+@media (max-width: 1025px) and (max-height: 601px) {
+  .main {
+    height: 10vh;
+  }
+  .main .innovate-icon {
+    height: 7vh;
+    width: 15vw;
+  }
+  .main .links-section .navlinks .nav-tags {
+    font-size: 1.3vw;
+  }
+}
+@media (min-width: 1023px) {
+  .main {
+    height: 11.5vh;
+  }
+  .main .innovate-icon {
+    height: 8.2vh;
+    width: 15vw;
+  }
+  .main .links-section .navlinks .nav-tags {
+    font-size: 1.25vw;
+  }
+}/*# sourceMappingURL=navbar.css.map */

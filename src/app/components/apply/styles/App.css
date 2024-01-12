@@ -1,0 +1,62 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins";
+}
+
+.App {
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+  color: azure;
+  overflow-x: hidden;
+}
+.App .navbar {
+  position: absolute;
+  width: 100vw;
+  height: 11.204vh;
+  top: 0;
+  z-index: 3;
+  background-attachment: fixed;
+}
+.App .Apply {
+  position: relative;
+  z-index: 1;
+  width: 100vw;
+  height: 102.855vh;
+  flex-shrink: 0;
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.3) 100%), url("../../../public/assets/curved.png"), lightgray 50%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.App .Profile {
+  margin-top: 100vh;
+  width: 100vw;
+  height: 850vh;
+  background: #FFF;
+  position: absolute;
+}
+
+@media (min-width: 559px) and (max-width: 1023px) {
+  .App .Apply {
+    height: 72vh;
+  }
+}
+@media (min-width: 482px) and (max-width: 598px) {
+  .App .Apply {
+    height: 65vh;
+  }
+}
+@media (max-width: 481px) {
+  .App .Apply {
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.3) 100%), url("../../../public/assets/mobile-apply-bg.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 145vh;
+    /* Add the following clip-path property to create a curved background */
+    border-radius: 0 0 50% 50%/0 0 30vw 30vw;
+  }
+}/*# sourceMappingURL=App.css.map */

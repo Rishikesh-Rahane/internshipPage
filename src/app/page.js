@@ -1,3 +1,5 @@
+"use client"
+import { useEffect,useState } from "react";
 import { Poppins } from "next/font/google";
 const poppins = Poppins({
   subsets: ["latin"],
@@ -8,15 +10,18 @@ import Navbar from "./components/Navbar/Navbar";
 import Apply from "./components/apply/Apply";
 import Profile from "./components/profiles_section/Profile";
 import "./styles/App.css";
+import TiltWarning from "./TiltWarning";
 
 export default function Home() {
+
   return (
     <main className={poppins.className}>
       <div className="App">
-        <div className="navbar">
+          <TiltWarning />
+        <div className="navbar" >
           <Navbar></Navbar>
         </div>
-        <div className="Apply">
+        <div className="Apply" >
           <Apply></Apply>
         </div>
         <div className="Profile" style={{ color: "black" }}>

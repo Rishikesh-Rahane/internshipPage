@@ -1,0 +1,38 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins";
+}
+
+.App {
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+  color: azure;
+  overflow-x: hidden;
+}
+.App .navbar {
+  width: 100vw;
+  height: 11.204vh;
+  position: fixed;
+  top: 0;
+  position: absolute;
+  z-index: 999px;
+  background: fixed;
+}
+.App .Apply {
+  width: 100vw;
+  height: 102.855vh;
+  flex-shrink: 0;
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.3) 100%), url("../../../public/assets/curved.png"), lightgray 50%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.App .Profile {
+  width: 100vw;
+  height: 628.241vh;
+  background: #FFF;
+  position: absolute;
+}/*# sourceMappingURL=App.css.map */

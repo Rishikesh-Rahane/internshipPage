@@ -1,0 +1,29 @@
+.main-container-form {
+  display: flex;
+  justify-content: center;
+  width: 79.5833vw;
+  height: 68.2407vh;
+  flex-shrink: 0;
+}
+.main-container-form .form-container {
+  height: 14.7222vh;
+  width: 35.3645vw;
+  display: flex;
+  justify-content: center;
+}
+.main-container-form .form-container .profile {
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+}
+.main-container-form .form-container .profile .para-step1 {
+  color: #FFFADE;
+  font-family: "Poppins";
+  font-size: 1.5625vw;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+}
+.main-container-form .form-container .profile .button-step1 {
+  margin-top: 50px;
+}/*# sourceMappingURL=form.css.map */
