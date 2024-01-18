@@ -155,7 +155,8 @@
   border: none;
   cursor: pointer;
   display: flex;
-  padding: 12px 45px;
+  width: 8vw;
+  height: 5vh;
   justify-content: center;
   align-items: center;
   gap: 10px;
@@ -165,7 +166,8 @@
   border: none;
   cursor: pointer;
   display: flex;
-  padding: 12px 60px;
+  width: 10vw;
+  height: 5vh;
   justify-content: center;
   align-items: center;
   gap: 10px;
@@ -173,12 +175,13 @@
 }
 .main-container-form .form-container .sub-profile-domain .itprofile-map {
   display: flex;
-  flex-wrap: wrap;
-  align-items: flex-start;
-  gap: 30px;
+  justify-content: center;
+  align-items: center;
+  gap: 1.5625vw;
 }
 .main-container-form .form-container .sub-profile-domain .itprofile-map .itprofile {
   margin-top: 5.6481vh;
+  text-align: center;
 }
 .main-container-form .form-container .sub-profile-domain .itprofile-map .itprofile .itprofile-para:hover {
   background: #ff8492;
@@ -190,16 +193,17 @@
   height: 5vh;
   cursor: pointer;
   display: flex;
-  padding: 12px 40px;
+  width: 18vw;
   justify-content: center;
   align-items: center;
+  margin-bottom: -23px;
   gap: 10px;
   border-radius: 36.901px;
   background: #fff;
   color: var(--Button-Secondary, #4d3699);
   /* P 1 Semibold */
   font-family: "Poppins";
-  font-size: 0.9375vw;
+  font-size: 1.05vw;
   font-style: normal;
   font-weight: 600;
   line-height: 1.6666vh; /* 100% */
@@ -408,6 +412,9 @@
   font-weight: 500;
   line-height: 2.3148vh; /* 156.25% */
 }
+.main-container-form .form-container .contact-details .input-field .input-heading .mobile-calling {
+  font-size: 0.7291vw;
+}
 .main-container-form .form-container .contact-details .input-field input {
   border: none;
   outline: none;
@@ -415,7 +422,7 @@
 }
 .main-container-form .form-container .contact-details .input-field .input-icon-field {
   display: flex;
-  width: 25vw;
+  width: 28vw;
   height: 5vh;
   padding: 8px 16px;
   align-items: center;
@@ -526,23 +533,25 @@
 }
 .main-container-form .form-container .review-section .details-summary .details-right-summary .right-upload-section {
   display: flex;
-  width: 17.7083vw;
-  height: 13.888vh;
+  width: 24vw;
+  height: 16vh;
   padding: 10px 14px;
   justify-content: center;
   align-items: center;
-  gap: 1.5625vw;
+  gap: 1vw;
   border-radius: 10px;
   border: 2px solid var(--Text-White, #ede7ff);
 }
 .main-container-form .form-container .review-section .details-summary .details-right-summary .right-upload-section .upload-left-section {
   display: flex;
+  flex-direction: column;
   gap: 8px;
 }
 .main-container-form .form-container .review-section .details-summary .details-right-summary .right-upload-section .upload-left-section .resume-name {
   color: #ede7ff;
 }
 .main-container-form .form-container .review-section .details-summary .details-right-summary .right-upload-section .upload-left-section .resume-icon {
+  display: none;
   margin-top: -5px;
   width: 2.0833vw;
   height: 3.7097vh;
@@ -718,4 +727,317 @@
   font-style: normal;
   font-weight: 600;
   line-height: normal;
+}
+
+@media (min-width: 1023px) and (max-width: 1365px) {
+  .main-container-form .form-container .contact-details .input-field .input-icon-field {
+    height: 6vh;
+    width: 35vw;
+  }
+  .main-container-form .form-container .review-section {
+    height: 118vh;
+  }
+  .main-container-form .form-container .review-section .details-summary .details-right-summary .right-upload-section {
+    width: 22vw;
+  }
+}
+@media (max-width: 481px) {
+  .main-container-form {
+    width: 100vw;
+  }
+  .main-container-form .form-container .profile {
+    background-size: cover;
+    background-repeat: no-repeat;
+    background: url("../../../../../public/assets/form-mobile-img.png");
+    width: 102vw;
+    height: 80vh;
+  }
+  .main-container-form .form-container .profile .para-step1 {
+    text-align: center;
+    width: 75vw;
+    font-size: 6vw;
+  }
+  .main-container-form .form-container .profile .button-step1 {
+    margin-left: 2vw;
+  }
+  .main-container-form .form-container .profile .button-step1 .itBtn {
+    font-size: 4.5vw;
+  }
+  .main-container-form .form-container .profile .button-step1 .nonitBtn {
+    font-size: 4.5vw;
+  }
+  .main-container-form .form-container .sub-profile-domain {
+    background-size: cover;
+    background-repeat: no-repeat;
+    background: url("../../../../../public/assets/form-mobile-img.png");
+    width: 102vw;
+    height: 90vh;
+  }
+  .main-container-form .form-container .sub-profile-domain .btn-step2 {
+    gap: 1vw;
+    font-size: 5vw;
+    margin-left: -1.5vw;
+  }
+  .main-container-form .form-container .sub-profile-domain .btn-step2 .step2-btn2 {
+    margin-left: 45vw;
+  }
+  .main-container-form .form-container .sub-profile-domain .subprofile-step2 .subprofile-para {
+    margin-top: 2vh;
+    font-size: 6.2vw;
+  }
+  .main-container-form .form-container .sub-profile-domain .subprofile-step2 .button-step2 {
+    gap: 5vw;
+    margin-top: 5vh;
+    margin-bottom: 5vh;
+  }
+  .main-container-form .form-container .sub-profile-domain .subprofile-step2 .button-step2 .itbtn-step2 {
+    height: 6vh;
+    width: 24vw;
+    font-size: 6vw;
+  }
+  .main-container-form .form-container .sub-profile-domain .subprofile-step2 .button-step2 .nonitbtn-step2 {
+    height: 6vh;
+    width: 32vw;
+    font-size: 6vw;
+  }
+  .main-container-form .form-container .sub-profile-domain .itprofile-map {
+    flex-direction: column;
+  }
+  .main-container-form .form-container .sub-profile-domain .itprofile-map .itprofile {
+    margin-top: 1.2vh;
+  }
+  .main-container-form .form-container .sub-profile-domain .itprofile-map .itprofile .itprofile-para {
+    text-align: center;
+    line-height: 2.5vh;
+    margin-top: 1vh;
+    font-size: 5vw;
+    height: 6vh;
+    width: 90vw;
+    margin-bottom: 0vh;
+  }
+  .main-container-form .form-container .sub-profile-domain .knew-more {
+    color: #EDE7FF;
+    bottom: 7%;
+    font-size: 5.5vw;
+  }
+  .main-container-form .form-container .upload-resume-for-selected-domain {
+    background-size: cover;
+    background-repeat: no-repeat;
+    background: url("../../../../../public/assets/form-mobile-img.png");
+    height: 97vh;
+  }
+  .main-container-form .form-container .upload-resume-for-selected-domain .resume-heading {
+    margin-top: -8vh;
+    text-align: center;
+    line-height: 5vh;
+    font-size: 6vw;
+    width: 90vw;
+  }
+  .main-container-form .form-container .upload-resume-for-selected-domain .resume-para {
+    width: 90vw;
+    font-size: 4vw;
+  }
+  .main-container-form .form-container .upload-resume-for-selected-domain .resume-upload {
+    margin-top: 10vh;
+    width: 80vw;
+  }
+  .main-container-form .form-container .upload-resume-for-selected-domain .resume-upload .upload-resume-btn {
+    width: 60vw;
+    font-size: 5vw;
+  }
+  .main-container-form .form-container .upload-resume-for-selected-domain .resume-upload .upload-para {
+    width: 40vw;
+    font-size: 4vw;
+  }
+  .main-container-form .form-container .college-status .college-heading {
+    display: flex;
+    position: absolute;
+    margin-top: -45vh;
+  }
+  .main-container-form .form-container .college-status .college-status-para {
+    font-size: 4.8vw;
+    margin-top: 7vh;
+  }
+  .main-container-form .form-container .rating-select {
+    background-size: cover;
+    background-repeat: no-repeat;
+    background: url("../../../../../public/assets/form-mobile-img.png");
+    width: 102vw;
+    height: 115vh;
+  }
+  .main-container-form .form-container .rating-select .rating-resume-heading {
+    display: flex;
+    position: absolute;
+    margin-top: -55vh;
+  }
+  .main-container-form .form-container .rating-select .profile-proeficiency {
+    margin-top: 25vh;
+    text-align: center;
+    width: 80vw;
+    font-size: 5vw;
+  }
+  .main-container-form .form-container .rating-select .proficiency-range {
+    font-size: 4vw;
+    color: #FE802C;
+  }
+  .main-container-form .form-container .rating-select .ratings-points {
+    margin-top: 1vh;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 92vw;
+    gap: 4vw;
+  }
+  .main-container-form .form-container .rating-select .ratings-points .ratings-container .ratings-circle {
+    width: 14.5vw;
+    font-size: 5.1vw;
+    height: 7.5vh;
+    border-radius: 50vw;
+  }
+  .main-container-form .form-container .skill-rating .skill-heading {
+    margin-top: -4vh;
+  }
+  .main-container-form .form-container .skill-rating .skill-pro {
+    margin-top: 12vh;
+  }
+  .main-container-form .form-container .description .desc-heading {
+    margin-top: -12vh;
+  }
+  .main-container-form .form-container .description .desc-para {
+    margin-top: 10vh;
+    text-align: center;
+    width: 85vw;
+  }
+  .main-container-form .form-container .contact-details .contact-heading {
+    margin-top: -16vh;
+  }
+  .main-container-form .form-container .contact-details .mob-inp {
+    margin-top: 12vh;
+  }
+  .main-container-form .form-container .contact-details .input-field {
+    margin-top: 10vh;
+    flex-direction: column;
+  }
+  .main-container-form .form-container .contact-details .input-field .input-heading {
+    margin-right: 60vw;
+    font-size: 4vw;
+    width: 32vw;
+  }
+  .main-container-form .form-container .contact-details .input-field .input-heading .mobile-calling {
+    font-size: 3vw;
+  }
+  .main-container-form .form-container .contact-details .input-field .input-icon-field {
+    margin-top: -2vh;
+    width: 97vw;
+  }
+  .main-container-form .form-container .contact-details .input-field .input-icon-field .phone-input {
+    width: 70vw;
+  }
+  .main-container-form .form-container .contact-details .input-field .input-icon-field .input-enter {
+    width: 60vw;
+  }
+  .main-container-form .form-container .review-section {
+    background-size: cover;
+    background-repeat: no-repeat;
+    background: url("../../../../../public/assets/form-mobile-img.png");
+    height: 190vh;
+  }
+  .main-container-form .form-container .review-section .review-back-btn {
+    top: 6%;
+    margin-left: -12vw;
+  }
+  .main-container-form .form-container .review-section .review-top-heading {
+    width: 90vw;
+    text-align: center;
+    line-height: 3vh;
+    font-size: 5.5vw;
+    line-height: 3.5vh;
+  }
+  .main-container-form .form-container .review-section .review-heading {
+    font-size: 5.5vw;
+    width: 90vw;
+  }
+  .main-container-form .form-container .review-section .review-heading .editicon {
+    margin-top: 1vh;
+    width: 10vw;
+    height: 5vh;
+  }
+  .main-container-form .form-container .review-section .details-summary {
+    flex-direction: column;
+  }
+  .main-container-form .form-container .review-section .details-summary .details-left-summary .detials-contact .contact-sub-section {
+    margin-top: -1.5vh;
+    gap: 10vw;
+  }
+  .main-container-form .form-container .review-section .details-summary .details-left-summary .detials-contact .contact-sub-section .details-para {
+    font-size: 4vw;
+  }
+  .main-container-form .form-container .review-section .details-summary .details-left-summary .detials-contact .contact-sub-section .details-span {
+    font-size: 4vw;
+  }
+  .main-container-form .form-container .review-section .details-summary .details-right-summary .right-upload-section {
+    width: 90vw;
+    gap: 15vw;
+  }
+  .main-container-form .form-container .review-section .details-summary .details-right-summary .right-upload-section .upload-left-section .resume-name {
+    font-size: 4vw;
+  }
+  .main-container-form .form-container .review-section .details-summary .details-right-summary .right-upload-section .upload-right-section .view-button {
+    font-size: 4vw;
+    line-height: 2vh;
+  }
+  .main-container-form .form-container .review-section .question-summary {
+    margin-top: 7vh;
+  }
+  .main-container-form .form-container .review-section .question-summary .question-heading {
+    text-align: start;
+    font-size: 5vw;
+  }
+  .main-container-form .form-container .review-section .question-summary .question-edit-frame {
+    width: 90vw;
+  }
+  .main-container-form .form-container .review-section .question-summary .question-edit-frame .college-para {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+  }
+  .main-container-form .form-container .review-section .question-summary .question-edit-frame p {
+    font-size: 3.8vw;
+  }
+  .main-container-form .form-container .review-section .question-summary .question-edit-frame p .span {
+    margin-top: 1.5vh;
+    font-size: 4.5vw;
+    width: 17vw;
+    height: 4vh;
+    margin-left: -0.7vw;
+  }
+  .main-container-form .form-container .review-section .submit-section {
+    gap: 8vw;
+  }
+  .main-container-form .form-container .review-section .submit-section .discard-button {
+    font-size: 5vw;
+  }
+  .main-container-form .form-container .review-section .submit-section .submit-button {
+    font-size: 4.8vw;
+    line-height: 2.5vh;
+    height: 6vh;
+    width: 38vw;
+  }
+  .main-container-form .form-container .confirmation-section {
+    background-size: cover;
+    background-repeat: no-repeat;
+    background: url("../../../../../public/assets/form-mobile-img.png");
+    height: 80vh;
+    width: 105vw;
+  }
+  .main-container-form .form-container .confirmation-section .h1 {
+    width: 90vw;
+    font-size: 7vw;
+  }
+  .main-container-form .form-container .confirmation-section .h3 {
+    width: 70vw;
+    color: #FE802C;
+    text-align: center;
+    font-size: 5vw;
+  }
 }/*# sourceMappingURL=form.css.map */

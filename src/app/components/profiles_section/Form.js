@@ -256,47 +256,47 @@ export default function Form() {
     mobile,
   ]);
 
-  // // Add a beforeunload event listener to show a confirmation message
-  // useEffect(() => {
-  //   const handleBeforeUnload = (event) => {
-  //     const message =
-  //       "Are you sure you want to leave? Your progress will be lost.";
-  //     event.returnValue = message; // Standard for most browsers
-  //     return message; // For some older browsers
-  //   };
+  // Add a beforeunload event listener to show a confirmation message
+  useEffect(() => {
+    const handleBeforeUnload = (event) => {
+      const message =
+        "Are you sure you want to leave? Your progress will be lost.";
+      event.returnValue = message; // Standard for most browsers
+      return message; // For some older browsers
+    };
 
-  //   const handleVisibilityChange = () => {
-  //     setIsPageVisible(!document.hidden);
-  //   };
+    const handleVisibilityChange = () => {
+      setIsPageVisible(!document.hidden);
+    };
 
-  //   window.addEventListener("beforeunload", handleBeforeUnload);
-  //   document.addEventListener("visibilitychange", handleVisibilityChange);
+    window.addEventListener("beforeunload", handleBeforeUnload);
+    document.addEventListener("visibilitychange", handleVisibilityChange);
 
-  //   // Cleanup the event listeners when the component is unmounted
-  //   return () => {
-  //     window.removeEventListener("beforeunload", handleBeforeUnload);
-  //     document.removeEventListener("visibilitychange", handleVisibilityChange);
-  //   };
-  // }, []);
+    // Cleanup the event listeners when the component is unmounted
+    return () => {
+      window.removeEventListener("beforeunload", handleBeforeUnload);
+      document.removeEventListener("visibilitychange", handleVisibilityChange);
+    };
+  }, []);
 
-  // // Show a confirmation message if the user tries to close the tab by clicking the close button
-  // useEffect(() => {
-  //   const handleWindowClose = (event) => {
-  //     if (!isPageVisible) {
-  //       const message =
-  //         "Are you sure you want to leave? Your progress will be lost.";
-  //       event.returnValue = message; // Standard for most browsers
-  //       return message; // For some older browsers
-  //     }
-  //   };
+  // Show a confirmation message if the user tries to close the tab by clicking the close button
+  useEffect(() => {
+    const handleWindowClose = (event) => {
+      if (!isPageVisible) {
+        const message =
+          "Are you sure you want to leave? Your progress will be lost.";
+        event.returnValue = message; // Standard for most browsers
+        return message; // For some older browsers
+      }
+    };
 
-  //   window.addEventListener("unload", handleWindowClose);
+    window.addEventListener("unload", handleWindowClose);
 
-  //   // Cleanup the event listener when the component is unmounted
-  //   return () => {
-  //     window.removeEventListener("unload", handleWindowClose);
-  //   };
-  // }, [isPageVisible]);
+    // Cleanup the event listener when the component is unmounted
+    return () => {
+      window.removeEventListener("unload", handleWindowClose);
+    };
+  }, [isPageVisible]);
 
   const collegeHandler = (collegeStaus) => {
     setCollege(collegeStaus);
@@ -449,7 +449,7 @@ export default function Form() {
             <div className="sub-profile-domain">
               <div className="btn-step2">
                 <>
-                  <Image src={backicon} />
+                  <Image src={backicon} className="back-img" />
                   <button onClick={prevStep} className="step2-btn1">
                     Back
                   </button>
@@ -537,7 +537,7 @@ export default function Form() {
                           <p
                             onClick={() => selectSubProfile(nonitprofile)}
                             className="itprofile-para"
-                            style={{ marginBottom: "-23px" }}
+                            
                           >
                             {nonitprofile}
                           </p>
@@ -636,7 +636,7 @@ export default function Form() {
                   <Image src={backicon} className="next-icon" />
                 </>
               </div>
-              <h1 className="resume-heading">
+              <h1 className="resume-heading rating-resume-heading">
                 Apply For {subprofile + "ship"}
               </h1>
               <p className="profile-proeficiency">
@@ -662,7 +662,7 @@ export default function Form() {
             </div>
           )}
           {step === 6 && rating !== "" && (
-            <div className="rating-select sub-profile-domain upload-resume-for-selected-domain">
+            <div className="rating-select sub-profile-domain upload-resume-for-selected-domain skill-rating">
               <div className="btn-step2">
                 <>
                   <Image src={backicon} />
@@ -677,10 +677,10 @@ export default function Form() {
                   <Image src={backicon} className="next-icon" />
                 </>
               </div>
-              <h1 className="resume-heading">
+              <h1 className="resume-heading skill-heading">
                 Apply For {subprofile + "ship"}
               </h1>
-              <p className="profile-proeficiency">
+              <p className="profile-proeficiency skill-pro">
                 Rate your proficiency in {subprofile} on a scale of 1 to 10.
               </p>
               <p className="proficiency-range">
@@ -718,14 +718,14 @@ export default function Form() {
                   <Image src={backicon} className="next-icon" />
                 </>
               </div>
-              <h1 className="resume-heading">
-                Apply for {subprofile + "ship"}
+              <h1 className="resume-heading desc-heading">
+                Apply For {subprofile + "ship"}
               </h1>
-              <p className="college-status-para">
+              <p className="college-status-para desc-para">
                 Have you read the job description and are you interested in this
                 unpaid internship opportunity?
               </p>
-              <div className="button-step1">
+              <div className="button-step1 desc-btn">
                 <button
                   onClick={() => descriptionHandler("Yes")}
                   className="itBtn"
@@ -757,10 +757,10 @@ export default function Form() {
                   <Image src={backicon} className="next-icon" />
                 </>
               </div>
-              <h1 className="resume-heading">
-                Apply for {subprofile + "ship"}
+              <h1 className="resume-heading desc-heading">
+                Apply For {subprofile + "ship"}
               </h1>
-              <p className="college-status-para">
+              <p className="college-status-para desc-para">
                 Can you start immediately? We are looking to fill this position
                 as soon as possible.
               </p>
@@ -796,7 +796,7 @@ export default function Form() {
                   <Image src={backicon} className="next-icon" />
                 </>
               </div>
-              <h1 className="resume-heading">
+              <h1 className="resume-heading contact-heading">
                 Apply For {subprofile + "ship"}
               </h1>
               <div className="input-field">
@@ -819,24 +819,24 @@ export default function Form() {
                   />
                 </div>
               </div>
-              <div className="input-field">
+              <div className="input-field mob-inp">
                 <label
                   htmlFor="mobile"
-                  className="input-heading"
+                  className="input-heading mobile-heading"
                   style={{ marginLeft: "2px" }}
                 >
                   Mobile Number <br />{" "}
-                  <p style={{ marginTop: "0.9259vh", fontSize: "0.7291vw" }}>
+                  <p style={{ marginTop: "0.9259vh"}} className="mobile-calling">
                     (Calling)
                   </p>
                 </label>
                 <div
-                  className="input-icon-field"
+                  className="input-icon-field "
                   style={{ marginLeft: "0.7812vw" }}
                 >
                   <Image src={Phone} width={20} height={20} />
                   <PhoneInput
-                    className="input-enter phone-input"
+                    className="input-enter phone-input mob"
                     country={"in"}
                     name="mobile"
                     value={mobile}
@@ -853,7 +853,7 @@ export default function Form() {
           {step === 10 && email !== "" && mobile && (
             <div className="review-section sub-profile-domain profile">
               <div
-                className="btn-step2"
+                className="btn-step2 review-back-btn"
                 style={{ position: "absolute", left: "21%" }}
               >
                 <>
@@ -863,12 +863,12 @@ export default function Form() {
                   </button>
                 </>
               </div>
-              <h1 className="review-heading" style={{marginTop:"12vh"}}>
+              <h1 className="review-heading review-top-heading" style={{marginTop:"12vh"}}>
                 Review Application for {subprofile + "ship"}
               </h1>
               <div className="details-summary">
                 <div className="details-left-summary">
-                  <h2 className="review-heading">
+                  <h2 className="review-heading review-top-heading">
                     Contact Info
                     <span onClick={() => setStep(7)}>
                       <Image src={Create} className="editicon" />
@@ -904,7 +904,7 @@ export default function Form() {
                   </div>
                 </div>
                 <div className="details-right-summary ">
-                  <h2 className="review-heading">
+                  <h2 className="review-heading review-top-heading">
                     Resume
                     <span onClick={() => setStep(3)}>
                       <Image src={Create} className="editicon" />
@@ -943,7 +943,7 @@ export default function Form() {
                           />
                         </svg>
                       </i>
-                      <p className="resume-name">File.pdf</p>
+                      <p className="resume-name">{resume.name}</p>
                       <i className="resume-icon">
                           <svg
                             xmlns="http://www.w3.org/2000/svg"
@@ -973,33 +973,33 @@ export default function Form() {
               <div className="question-summary">
                 <h3 className="question-heading">Questions</h3>
                 <div className="question-edit-frame">
-                   <p>
+                   <p className="college-para">
                     Are you a college-student <span  className="span">{college}</span> 
                   </p>
                   <Image src={Create} onClick={() => setStep(4)} className="editicon edit" />
                 </div>
                 <div className="question-edit-frame">
-                  <p>
+                  <p className="college-para">
                     {getProficiencyContent(profile, subprofile)}  <span className="span">{rating}</span>
                     
                   </p>
                   <Image src={Create} onClick={() => setStep(5)} className="editicon edit" />
                 </div>
                 <div className="question-edit-frame">
-                  <p>
+                  <p className="college-para">
                     Rate your proficiency in {subprofile} on a scale of 1 to 10. <span className="span">{subrating}</span> 
                   </p>
                   <Image src={Create} onClick={() => setStep(6)} className="editicon edit" />
                 </div>
                 <div className="question-edit-frame">
-                  <p>
+                  <p className="college-para">
                     Have you read the job description and are you interested in
                     this unpaid internship opportunity? <span className="span">{description}</span>  
                   </p>
                   <Image src={Create} onClick={() => setStep(7)} className="editicon edit" />
                 </div>
                 <div className="question-edit-frame">
-                  <p>
+                  <p className="college-para desc-para-clg">
                     Can you start immediately? We are looking to fill this
                     position as soon as possible. <span className="span">{starttimmediately}</span>
                   </p>
@@ -1014,7 +1014,6 @@ export default function Form() {
               </div>
             </div>
           )}
-
           {step === 11 && submit !== "" && (
             <div className="confirmation-section">
               <h1 className="h1">Thank You for Applying! </h1>

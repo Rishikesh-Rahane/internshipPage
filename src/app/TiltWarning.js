@@ -7,10 +7,10 @@ const TiltWarning = () => {
   useEffect(() => {
     const handleResize = () => {
       const isMobilePortrait =
-        window.innerWidth >= 768 &&
+        window.innerWidth >= 483 &&
         window.innerWidth <= 1023 &&
         window.innerHeight >= 200 &&
-        window.innerHeight <= 568;
+        window.innerHeight <= 1366;
 
       setIsTilted(isMobilePortrait);
     };
@@ -29,7 +29,7 @@ const TiltWarning = () => {
 
   return isTilted ? (
     <div className="tilt-warning">
-      <p>This website is not available in landscape mode. Please use portrait mode for the best experience  OR  This website may not support your device screen resolution. Use other device of different resolution to get the best experience.</p>
+      <p>This website does not support TABLET/IPAD Device OR This website is not available on Landscape mode of SMARTPHONE kindly view the website on portrait mode for BEST Experience.</p>
     </div>
   ) : null;
 };

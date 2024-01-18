@@ -30,6 +30,10 @@ import "swiper/css/pagination";
 import "swiper/css/scrollbar";
 import applicationformbg from "../../../../public/assets/applicationformbg.png";
 import Form from "./Form";
+import ScrollScale from "@/app/ScrollScale";
+import { ITProfileCard, NonITProfileCard } from "@/app/data/ProfilesData";
+import Link from "next/link";
+import Footer from "./footer/footer";
 
 SwiperCore.use([Pagination, Navigation]);
 // Initialize Swiper core modules
@@ -39,6 +43,30 @@ const Profile = () => {
   const profileRef = useRef(null);
   const aboutRef = useRef(null);
   const formRef = useRef(null);
+  const [profileCard, setprofileCard] = useState("ITProfileCard");
+  const [formProfile, setFormProfile] = useState("");
+  const [selectedTab, setSelectedTab] = useState("IT");
+  const [isHovering, setIsHovering] = useState(false);
+
+  const handleMouseEnter = () => {
+    setIsHovering(true);
+  };
+  const handleMouseLeave = () => {
+    setIsHovering(false);
+  };
+
+  const handleTabClick = (tab) => {
+    // Toggle the selected tab if it's clicked again
+    setSelectedTab((prevTab) => (prevTab === tab ? "" : tab));
+  };
+  const profileHandler = (profile) => {
+    setprofileCard(profile);
+  };
+
+  const applyHandler = (title) => {
+    setFormProfile(title);
+  };
+
   // const [test] = TestimonialCards
   const swiperOptions = {
     navigation: {
@@ -46,25 +74,41 @@ const Profile = () => {
       prevEl: ".swiper-button-prev",
     },
   };
+  const [isParentClickable, setIsParentClickable] = useState(true);
+
+  const handleParentClick = () => {
+    console.log("Parent div clicked");
+  };
+
+  const handleChildClick = () => {
+    console.log("Child button clicked");
+  };
 
   const nextCard = () => {
     setCurrentIndex((prevIndex) => (prevIndex + 1) % test.length);
   };
 
   return (
-    <div className="main-container"  > 
+    <div className="main-container">
       <>
         {WhoWeAreData.map((item, index) => {
           return (
-            <div key={index} className="who-we-are-section" id="about" ref={aboutRef} >
-              <div className="head-para">
-                <div className="headings-section">
-                  <div className="line-1"></div>
-                  <h1>{item.heading}</h1>
-                  <div className="line-1"></div>
+            <div
+              key={index}
+              className="who-we-are-section"
+              id="about"
+              ref={aboutRef}
+            >
+              <ScrollScale>
+                <div className="head-para">
+                  <div className="headings-section">
+                    <div className="line-1"></div>
+                    <h1>{item.heading}</h1>
+                    <div className="line-1"></div>
+                  </div>
+                  <div className="para-section">{item.para}</div>
                 </div>
-                <div className="para-section">{item.para}</div>
-              </div>
+              </ScrollScale>
               <div className="feature-cards">
                 {item.keyFeatures.map((feature, index) => {
                   return (
@@ -92,12 +136,13 @@ const Profile = () => {
           <h1>What You'll Get</h1>
           <div className="line-1"></div>
         </div>
+
         <div className="feature-section">
           <div className="img-para">
             <Image src={image156}></Image>
             <p>Receive mentorship and guidance throughout your program</p>
           </div>
-          <div className="img-para">
+          <div className="img-para img-para2">
             <Image src={image157}></Image>
             <p>
               Flexible working hours, task based approach and ample
@@ -125,145 +170,234 @@ const Profile = () => {
       <div className="profile-tabs" id="profile" ref={profileRef}>
         <h1>Profiles We Provide</h1>
         <div className="tabs">
-          <div className="it-profile">
-            <button>IT-Profiles</button>
+          <div
+            className={`tab ${selectedTab === "IT" ? "it-profile" : ""}`}
+            onClick={isParentClickable ? handleParentClick : null}
+            style={{ pointerEvents: isParentClickable ? "auto" : "none" }}
+          >
+            <button
+              onClick={() => {
+                handleTabClick("IT");
+                profileHandler("ITProfileCard");
+              }}
+            >
+              IT Profiles
+            </button>
           </div>
-          <button>Non-IT Profiles</button>
+          <div
+            className={`tab ${selectedTab === "NonIT" ? "it-profile" : ""}`}
+            onClick={isParentClickable ? handleParentClick : null}
+            style={{ pointerEvents: isParentClickable ? "auto" : "none" }}
+          >
+            <button
+              onClick={() => {
+                handleTabClick("NonIT");
+                profileHandler("NonITProfileCard");
+              }}
+            >
+              Non-IT Profiles
+            </button>
+          </div>
         </div>
       </div>
 
-      <div className="cards-section"  >
-        <div className="profile-cards">
-          <Image src={uiuxcardImage} className="profile-image"></Image>
-          <div className="inner-card-container">
-            <Image src={cardBgImage} className="card-bg-image"></Image>
-            <div className="card-contents">
-              <div className="heading-part">
-                <h2>UI/UX Design Intern</h2>
-                <span>Tenure: 90 days</span>
-              </div>
+      <div className="cards-section">
+        <Swiper
+          slidesPerView={"3"}
+          spaceBetween={30}
+          autoplay={{
+            delay: 2000, // Set the delay between slides in milliseconds (3 seconds in this example)
+            disableOnInteraction: false, // Allow manual interaction to interrupt autoplay
+          }}
+          loop={true}
+          pagination={{
+            clickable: true,
+          }}
+          navigation={true}
+          modules={[Navigation, Pagination, A11y]}
+          breakpoints={{
+            // when window width is >= 320px
+            300: {
+              slidesPerView: 1,
+            },
+            // when window width is >= 480px
+            480: {
+              slidesPerView: 1,
+            },
+            // when window width is >= 768px
+            768: {
+              slidesPerView: 2,
+            },
+            // when window width is >= 1024px
+            1024: {
+              slidesPerView: 3,
+            },
+          }}
+        >
+          {profileCard === "ITProfileCard" &&
+            ITProfileCard.map((itcard, index) => {
+              return (
+                <>
+                  <SwiperSlide>
+                    <div className="profile-cards" key={index}>
+                      <Image
+                        src={itcard.bgImage}
+                        className="profile-image"
+                      ></Image>
+                      <div className="inner-card-container">
+                        <Image
+                          src={cardBgImage}
+                          className="card-bg-image"
+                        ></Image>
+                        <div className="card-contents">
+                          <div className="heading-part">
+                            <h2>{itcard.title}</h2>
+                            <span>Tenure: {itcard.tenure}</span>
+                          </div>
 
-              <div className="skills-part">
-                <h3 className="h3">Skills Proficiency:</h3>
-                <Image src={figmaIcon}></Image>
-                <Image src={adobeIlustrator}></Image>
-                <Image src={adobeXd}></Image>
-                <Image src={adobePhotoshop}></Image>
-              </div>
+                          <div className="skills-part">
+                            <h3 className="h3">Skills Proficiency:</h3>
+                            {itcard.skillsProficiency.map((skills, index) => {
+                              return (
+                                <>
+                                  <Image src={skills}></Image>
+                                </>
+                              );
+                            })}
+                          </div>
 
-              <div className="eligibility-section">
-                <h3 className="h3">Eligibility:</h3>
-                <div className="para-section">
-                  <p>. Portfolio showcasing UI/UX Projects</p>
-                  <p>
-                    . Strong Foundation in Interaction Design, User Experience
-                    and Visual Design
-                  </p>
-                  <p>
-                    . Good Communication Skills and Ability to Work in a Team
-                  </p>
-                </div>
-              </div>
+                          <div className="eligibility-section">
+                            <h3 className="h3">Eligibility:</h3>
+                            <div className="para-section">
+                              {itcard.eligibility.map((eligibility, index) => {
+                                return (
+                                  <>
+                                    <p>{eligibility}</p>
+                                  </>
+                                );
+                              })}
+                            </div>
+                          </div>
 
-              <div className="buttons-section">
-                <button className="view-more-btn">
-                  <span>View More</span>
-                </button>
-                <button className="apply-now-btn">
-                  <span>Apply Now</span>
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
+                          <div className="buttons-section">
+                            <Link
+                              href="https://www.linkedin.com/company/rablo-innovate"
+                              className="view-more-btn"
+                              style={{ textDecoration: "none" }}
+                            >
+                              <span>
+                                <Link
+                                  href="https://www.linkedin.com/company/rablo-innovate"
+                                  style={{
+                                    all: "unset",
+                                    textDecoration: "none",
+                                  }}
+                                >
+                                  <span>View More</span>
+                                </Link>
+                              </span>
+                            </Link>
+                            <Link
+                              className="apply-now-btn"
+                              style={{ textDecorationLine: "none" }}
+                              href="#form"
+                              onClick={() => applyHandler(itcard.title)}
+                              onMouseEnter={handleMouseEnter}
+                              onMouseLeave={handleMouseLeave}
+                            >
+                              Apply Now
+                            </Link>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </SwiperSlide>
+                </>
+              );
+            })}
 
-        <div className="profile-cards">
-          <Image src={uiuxcardImage} className="profile-image"></Image>
-          <div className="inner-card-container">
-            <Image src={cardBgImage} className="card-bg-image"></Image>
-            <div className="card-contents">
-              <div className="heading-part">
-                <h2>UI/UX Design Intern</h2>
-                <span>Tenure: 90 days</span>
-              </div>
+          {profileCard === "NonITProfileCard" &&
+            NonITProfileCard.map((itcard, index) => {
+              return (
+                <>
+                  <SwiperSlide>
+                    <div className="profile-cards" key={index}>
+                      <Image
+                        src={itcard.bgImage}
+                        className="profile-image"
+                      ></Image>
+                      <div className="inner-card-container">
+                        <Image
+                          src={cardBgImage}
+                          className="card-bg-image"
+                        ></Image>
+                        <div className="card-contents">
+                          <div className="heading-part">
+                            <h2>{itcard.title}</h2>
+                            <span>Tenure: {itcard.tenure}</span>
+                          </div>
 
-              <div className="skills-part">
-                <h3 className="h3">Skills Proficiency:</h3>
-                <Image src={figmaIcon}></Image>
-                <Image src={adobeIlustrator}></Image>
-                <Image src={adobeXd}></Image>
-                <Image src={adobePhotoshop}></Image>
-              </div>
+                          <div className="skills-part">
+                            <h3 className="h3">Skills Proficiency:</h3>
+                            {itcard.skillsProficiency.map((skills, index) => {
+                              return (
+                                <>
+                                  <Image src={skills}></Image>
+                                </>
+                              );
+                            })}
+                          </div>
 
-              <div className="eligibility-section">
-                <h3 className="h3">Eligibility:</h3>
-                <div className="para-section">
-                  <p>. Portfolio showcasing UI/UX Projects</p>
-                  <p>
-                    . Strong Foundation in Interaction Design, User Experience
-                    and Visual Design
-                  </p>
-                  <p>
-                    . Good Communication Skills and Ability to Work in a Team
-                  </p>
-                </div>
-              </div>
+                          <div className="eligibility-section">
+                            <h3 className="h3">Eligibility:</h3>
+                            <div className="para-section">
+                              {itcard.eligibility.map((eligibility, index) => {
+                                return (
+                                  <>
+                                    <p>{eligibility}</p>
+                                  </>
+                                );
+                              })}
+                            </div>
+                          </div>
 
-              <div className="buttons-section">
-                <button className="view-more-btn">
-                  <span>View More</span>
-                </button>
-                <button className="apply-now-btn">
-                  <span>Apply Now</span>
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div className="profile-cards">
-          <Image src={uiuxcardImage} className="profile-image"></Image>
-          <div className="inner-card-container">
-            <Image src={cardBgImage} className="card-bg-image"></Image>
-            <div className="card-contents">
-              <div className="heading-part">
-                <h2>UI/UX Design Intern</h2>
-                <span>Tenure: 90 days</span>
-              </div>
-
-              <div className="skills-part">
-                <h3 className="h3">Skills Proficiency:</h3>
-                <Image src={figmaIcon}></Image>
-                <Image src={adobeIlustrator}></Image>
-                <Image src={adobeXd}></Image>
-                <Image src={adobePhotoshop}></Image>
-              </div>
-
-              <div className="eligibility-section">
-                <h3 className="h3">Eligibility:</h3>
-                <div className="para-section">
-                  <p>. Portfolio showcasing UI/UX Projects</p>
-                  <p>
-                    . Strong Foundation in Interaction Design, User Experience
-                    and Visual Design
-                  </p>
-                  <p>
-                    . Good Communication Skills and Ability to Work in a Team
-                  </p>
-                </div>
-              </div>
-
-              <div className="buttons-section">
-                <button className="view-more-btn">
-                  <span>View More</span>
-                </button>
-                <button className="apply-now-btn">
-                  <span>Apply Now</span>
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
+                          <div className="buttons-section">
+                            <Link
+                              href="https://www.linkedin.com/company/rablo-innovate"
+                              className="view-more-btn"
+                              style={{ textDecoration: "none" }}
+                            >
+                              <span>
+                                <Link
+                                  href="https://www.linkedin.com/company/rablo-innovate"
+                                  style={{
+                                    all: "unset",
+                                    textDecoration: "none",
+                                  }}
+                                >
+                                  <span>View More</span>
+                                </Link>
+                              </span>
+                            </Link>
+                            <Link
+                              className="apply-now-btn"
+                              style={{ textDecorationLine: "none" }}
+                              href="#form"
+                              onClick={() => applyHandler(itcard.title)}
+                              onMouseEnter={handleMouseEnter}
+                              onMouseLeave={handleMouseLeave}
+                            >
+                              Apply Now
+                            </Link>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </SwiperSlide>
+                </>
+              );
+            })}
+        </Swiper>
       </div>
 
       <div className="certificate-section">
@@ -329,7 +463,7 @@ const Profile = () => {
       <div className="testimonial-section">
         <div className="testimonial-left-section">
           <h1 className="testimonial-left-heading">
-            Hear from <br /> Out Past Interns
+            Hear from <br className="mobile-br" /> Out Past Interns
           </h1>
           <p className="testimonial-left-para">
             More than 10,000 interns trained
@@ -359,6 +493,24 @@ const Profile = () => {
             }}
             modules={[Navigation, Autoplay, A11y]}
             style={{ transform: `translateX(-${currentIndex * 100}%)` }}
+            breakpoints={{
+              // when window width is >= 320px
+              300: {
+                slidesPerView: 1,
+              },
+              // when window width is >= 480px
+              480: {
+                slidesPerView: 1,
+              },
+              // when window width is >= 768px
+              768: {
+                slidesPerView: 2,
+              },
+              // when window width is >= 1024px
+              1024: {
+                slidesPerView: 2,
+              },
+            }}
           >
             {TestimonialCards.map((test, index) => {
               return (
@@ -390,18 +542,24 @@ const Profile = () => {
               src={Forward}
               className="forward-image swiper-button-next"
             ></Image>
+            <Image
+              src={Forward}
+              className="forward-image-mobile swiper-button-prev"
+            ></Image>
           </div>
         </>
       </div>
 
       <div className="application-form-section" id="form" ref={formRef}>
         <p className="interest-para">Interested? Just Fill The Form!</p>
+        <Image src={Forward} className="down-image"></Image>
         <div className="form-section">
           <div className="form">
-            <Form></Form> 
+            <Form subProfile={formProfile}></Form>
           </div>
         </div>
       </div>
+      <div className="footer"><Footer></Footer></div>
     </div>
   );
 };

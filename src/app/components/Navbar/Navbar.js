@@ -74,7 +74,7 @@ const Navbar = () => {
         <Link className="nav-tags tag2-size" href="#profile">View Profiles</Link>
         
       </div>
-      <button className='login-button'><Link href={"#form"} style={{all:"unset"}}>Apply for Internship</Link></button>
+      <button className='login-button'><Link href="#form" style={{all:"unset"}}>Apply for Internship</Link></button>
       </div>
       <div className={'hamburgerMenu'} onClick={toggleMenu}>
         <Image src={menuOpen ? CloseIcon : Menu} alt="menu-image" className={`menuIcon ${menuOpen ? 'closeIcon' : 'menuIcon'}`} />

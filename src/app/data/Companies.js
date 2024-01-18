@@ -7,6 +7,6 @@ export const CompaniesData = [
     {
         heading:"Connect With Top Companies",
         tagLine:"Connect, intern with and get placed at companies leading the industry",
-        images:[flipkartImage,amazonImage,microsoftImage,atlasianImage]
+        images:[flipkartImage,amazonImage,microsoftImage,atlasianImage,flipkartImage,amazonImage,microsoftImage,atlasianImage]
     }
 ]

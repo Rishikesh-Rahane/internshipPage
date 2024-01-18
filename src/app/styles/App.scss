@@ -27,6 +27,7 @@
     color: white;
     font-size: 1.5em;
     z-index: 1000;
+    backdrop-filter: blur(5px);
   }
   
   .navbar {
@@ -57,7 +58,7 @@
   .Profile {
     margin-top: 100vh;
     width: 100vw;
-    height: 850vh;
+    height: 685vh;
     background: #fff;
     position: absolute;
   }

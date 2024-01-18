@@ -155,7 +155,8 @@
             border: none;
             cursor: pointer;
             display: flex;
-            padding: 12px 45px;
+            width: 8vw;
+            height: 5vh;
             justify-content: center;
             align-items: center;
             gap: 10px;
@@ -165,7 +166,8 @@
             border: none;
             cursor: pointer;
             display: flex;
-            padding: 12px 60px;
+            width: 10vw;
+            height: 5vh;
             justify-content: center;
             align-items: center;
             gap: 10px;
@@ -173,13 +175,14 @@
           }
         }
       }
-      .itprofile-map {
+      .itprofile-map {  
         display: flex;
-        flex-wrap: wrap;
-        align-items: flex-start;
-        gap: 30px;
+        justify-content: center;
+        align-items: center;
+        gap: 1.5625vw;
         .itprofile {
           margin-top: 5.6481vh;
+          text-align: center;
           .itprofile-para:hover {
             background: #ff8492;
             transition: all;
@@ -190,9 +193,10 @@
             height: 5vh;
             cursor: pointer;
             display: flex;
-            padding: 12px 40px;
+            width: 18vw;
             justify-content: center;
             align-items: center;
+            margin-bottom: -23px;
             gap: 10px;
             border-radius: 36.901px;
             background: #fff;
@@ -200,7 +204,7 @@
 
             /* P 1 Semibold */
             font-family: "Poppins";
-            font-size: 0.9375vw;
+            font-size: 1.05vw;
             font-style: normal;
             font-weight: 600;
             line-height: 1.6666vh; /* 100% */
@@ -413,6 +417,9 @@
           font-style: normal;
           font-weight: 500;
           line-height: 2.3148vh; /* 156.25% */
+          .mobile-calling{
+            font-size: 0.7291vw;
+          }
         }
         input {
           border: none;
@@ -421,7 +428,7 @@
         }
         .input-icon-field {
           display: flex;
-          width: 25vw;
+          width: 28vw;
           height: 5vh;
           padding: 8px 16px;
           align-items: center;
@@ -531,22 +538,24 @@
           gap: 1.8229vw;
           .right-upload-section {
             display: flex;
-            width: 17.7083vw;
-            height: 13.888vh;
+            width: 24vw;
+            height: 16vh;
             padding: 10px 14px;
             justify-content: center;
             align-items: center;
-            gap: 1.5625vw;
+            gap: 1vw;
             border-radius: 10px;
             border: 2px solid var(--Text-White, #ede7ff);
             .upload-left-section {
               display: flex;
-              gap: 8px;
+              flex-direction: column;
+              gap: 8px; 
               .resume-name {
                 color: #ede7ff;
               }
               .resume-icon {
-                margin-top: -5px;
+                display: none;
+                margin-top: -5px; 
                 width: 2.0833vw;
                 height: 3.7097vh;
                 flex-shrink: 0;
@@ -727,6 +736,360 @@
         font-style: normal;
         font-weight: 600;
         line-height: normal;
+      }
+    }
+  }
+}
+@media (min-width:1023px) and (max-width:1365px) {
+    .main-container-form{
+      .form-container{
+        .contact-details{
+          .input-field{
+            .input-icon-field{
+              height: 6vh;
+              width: 35vw;
+            }
+          }
+
+        }
+        .review-section{
+          height: 118vh;
+          .details-summary{
+            .details-right-summary{
+              .right-upload-section{
+                width: 22vw;
+                .upload-right-section{
+                  
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+}
+@media (max-width:481px) {
+  .main-container-form{
+    width: 100vw;
+    .form-container{
+      .profile{
+        background-size: cover;
+        background-repeat: no-repeat;
+        background: url("../../../../../public/assets/form-mobile-img.png");
+        width: 102vw;
+        height: 80vh;
+        .para-step1{
+          text-align: center;
+          width:75vw; 
+          font-size:6vw;
+        }
+        .button-step1{
+          margin-left: 2vw;
+          .itBtn{
+            font-size: 4.5vw;
+          }
+          .nonitBtn{
+            font-size: 4.5vw;
+          }
+        }
+      }
+      .sub-profile-domain{
+        background-size: cover;
+        background-repeat: no-repeat;
+        background: url("../../../../../public/assets/form-mobile-img.png");
+        width: 102vw;
+        height: 90vh;
+        .btn-step2{
+          gap: 1vw;
+          font-size: 5vw;
+          margin-left: -1.5vw;
+          .step2-btn2{
+            margin-left: 45vw;
+          }
+        }
+        .subprofile-step2{
+          .subprofile-para{
+            margin-top: 2vh;
+            font-size: 6.2vw;
+          }
+          .button-step2{
+            gap: 5vw; 
+            margin-top: 5vh;   
+            margin-bottom: 5vh;
+            .itbtn-step2{
+              height: 6vh;
+              width: 24vw;
+              font-size: 6vw;
+            }
+            .nonitbtn-step2{
+              height: 6vh;
+              width: 32vw;
+              font-size: 6vw;
+            }
+          }
+        }
+        .itprofile-map{
+          flex-direction: column;
+          .itprofile{
+            margin-top: 1.2vh;
+            .itprofile-para{
+              text-align:center;
+              line-height: 2.5vh;
+              margin-top: 1vh;
+              font-size: 5vw;
+              height: 6vh;
+              width: 90vw;
+              margin-bottom: 0vh;
+            }
+          }
+        }
+        .knew-more{
+          color: #EDE7FF;
+          bottom: 7%;
+          font-size: 5.5vw;
+        }
+      }
+      .upload-resume-for-selected-domain{
+        background-size: cover;
+        background-repeat: no-repeat;
+        background: url("../../../../../public/assets/form-mobile-img.png");
+        height: 97vh;
+        .resume-heading{
+          margin-top: -8vh;
+          text-align: center;
+          line-height: 5vh;
+          font-size: 6vw;
+          width: 90vw;
+        }
+        .resume-para{
+          width: 90vw;
+          font-size: 4vw;
+        }
+        .resume-upload{
+          margin-top: 10vh;
+          width: 80vw;
+          .upload-resume-btn{
+            width: 60vw;
+            font-size: 5vw;
+          }
+          .upload-para{
+            width: 40vw;
+            font-size: 4vw;
+          }
+        }
+      }
+      .college-status{
+        .college-heading{
+          display: flex;
+          position: absolute;
+          margin-top: -45vh;
+        }
+        .college-status-para{
+          font-size: 4.8vw;
+          margin-top: 7vh;
+        }
+      }
+      .rating-select{
+        background-size: cover;
+        background-repeat: no-repeat;
+        background: url("../../../../../public/assets/form-mobile-img.png");
+        width: 102vw;
+        height: 115vh;
+        .rating-resume-heading{
+          display: flex;
+          position: absolute;
+          margin-top: -55vh;
+        }
+        .profile-proeficiency{
+          margin-top: 25vh;
+          text-align: center;
+          width: 80vw;
+          font-size: 5vw;
+        }
+        .proficiency-range{
+          font-size: 4vw;
+          color: #FE802C; 
+        }
+        .ratings-points{
+          margin-top: 1vh;
+          flex-wrap: wrap;
+          justify-content: center;
+          width: 92vw;
+          gap: 4vw;
+          .ratings-container{
+            .ratings-circle{
+              width: 14.5vw;
+              font-size: 5.1vw;
+              height: 7.5vh;
+              border-radius: 50vw;
+            }
+          }
+        }
+      }
+      .skill-rating{
+        .skill-heading{
+          margin-top: -4vh;
+        }
+        .skill-pro{
+          margin-top: 12vh;
+        }
+      }
+      .description{
+        .desc-heading{
+          margin-top: -12vh;
+        }
+        .desc-para{
+          margin-top: 10vh;
+          text-align: center;
+          width: 85vw;
+        }
+      }
+      .contact-details{
+        .contact-heading{
+          margin-top: -16vh;
+        }
+        .mob-inp{
+          margin-top: 12vh;
+        }
+        .input-field{
+          margin-top: 10vh;
+          flex-direction: column;
+          .input-heading{
+            margin-right: 60vw;
+            font-size: 4vw;
+            width: 32vw;
+            .mobile-calling{
+              font-size: 3vw;
+            }
+          }
+          .input-icon-field{
+            margin-top: -2vh;
+            width: 97vw;
+            .phone-input{
+              width: 70vw;
+            }
+            .input-enter{
+              width:60vw;
+            }
+
+          }
+        }
+      }
+      .review-section{
+        background-size: cover;
+        background-repeat: no-repeat;
+        background: url("../../../../../public/assets/form-mobile-img.png");
+        height: 190vh;
+        .review-back-btn{
+          top: 6%;
+          margin-left: -12vw;
+        }
+        .review-top-heading{
+          width: 90vw;
+          text-align: center;
+          line-height: 3vh;
+          font-size: 5.5vw;
+          line-height: 3.5vh;
+        }
+        .review-heading{
+          font-size: 5.5vw;
+          width: 90vw;
+          .editicon{
+            margin-top: 1vh;
+            width: 10vw;
+            height: 5vh;
+          }
+        }
+        .details-summary{
+          flex-direction: column;
+          .details-left-summary{
+            .detials-contact{
+              .contact-sub-section{
+                margin-top: -1.5vh;
+                gap: 10vw;
+                .details-para{
+                  font-size: 4vw;
+                }
+                .details-span{
+                  font-size: 4vw;
+                }
+              }
+            }
+          }
+          .details-right-summary{
+
+            .right-upload-section{
+              width: 90vw;
+              gap: 15vw;
+              .upload-left-section{
+                .resume-name{
+                  font-size: 4vw;
+                }
+              }
+              .upload-right-section{
+                .view-button{
+                  font-size: 4vw;
+                  line-height: 2vh;
+                }
+              }
+            }
+          }
+        }
+        .question-summary{
+          margin-top: 7vh;
+          .question-heading{
+            text-align: start;
+            font-size: 5vw;
+          }
+          .question-edit-frame{
+            width: 90vw;
+            .college-para{
+              display: flex;
+              flex-direction: column;
+              justify-content: flex-start;
+              align-items: flex-start;
+            }
+            p{
+              font-size: 3.8vw;
+              .span{
+                margin-top: 1.5vh;
+                font-size: 4.5vw;
+                width: 17vw;
+                height: 4vh;
+                margin-left: -0.7vw;
+              }
+            }
+          }
+        }
+        .submit-section{
+          gap: 8vw;
+          .discard-button{
+            font-size: 5vw;
+          }
+          .submit-button{
+            font-size: 4.8vw;
+            line-height: 2.5vh;
+            height: 6vh;
+            width: 38vw;
+          }
+        }
+      }
+      .confirmation-section{
+        background-size: cover;
+        background-repeat: no-repeat;
+        background: url("../../../../../public/assets/form-mobile-img.png");
+        height: 80vh;
+        width: 105vw;
+        .h1{
+          width: 90vw;
+          font-size: 7vw;
+        }
+        .h3{
+          width: 70vw;  
+          color: #FE802C; 
+          text-align: center;
+          font-size: 5vw;
+        }
       }
     }
   }

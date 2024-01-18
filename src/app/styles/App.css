@@ -27,6 +27,8 @@
   color: white;
   font-size: 1.5em;
   z-index: 1000;
+  -webkit-backdrop-filter: blur(5px);
+          backdrop-filter: blur(5px);
 }
 .App .navbar {
   position: absolute;
@@ -50,7 +52,7 @@
 .App .Profile {
   margin-top: 100vh;
   width: 100vw;
-  height: 850vh;
+  height: 685vh;
   background: #fff;
   position: absolute;
 }
