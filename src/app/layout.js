@@ -2,6 +2,7 @@ import { Inter } from "next/font/google";
 import { ToastContainer } from "react-toastify";
 import "./styles/App.css";
 import 'react-toastify/dist/ReactToastify.css';
+import favicon from "../../public/assets/innovate_logo.png"
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
@@ -22,7 +23,7 @@ export default function RootLayout({ children }) {
       </head>
       <body className={inter.className}>{children}
           <ToastContainer/>
-          </body>
+      </body>
     </html>
   );
 }

@@ -74,31 +74,75 @@ export default function Form() {
       return;
     }
 
+    const questionAnswerPair = [
+      {
+        question:"Are you a college-student?",
+        answer:college
+      },
+      // {
+      //   question:<>{getProficiencyContent(profile, subprofile)}</>,
+      //   answer:rating
+      // },
+      // {
+      //   question:<>Rate your proficiency in {subprofile} on a scale of 1 to 10.</>,
+      //   answer:subrating
+      // },
+      {
+        question:"Have you read the job description and are you interested in this unpaid internship opportunity?",
+        answer:description
+      },
+      {
+        question:" Can you start immediately? We are looking to fill this position as soon as possible.",
+        answer:starttimmediately
+      }
+    ]
     const formData = new FormData();
-    formData.append("profile", profile);
-    formData.append("subprofile", subprofile);
-    formData.append("resume", resume); // Ensure that resume is appended correctly
-    formData.append("college", college);
-    formData.append("rating", rating);
-    formData.append("subrating", subrating);
-    formData.append("description", description);
-    formData.append("starttimmediately", starttimmediately);
+    formData.append("preferredProfile", profile);
+    formData.append("preferredSubProfile", subprofile);
+    formData.append("file", resume); // Ensure that resume is appended correctly
+    // formData.append("college", college);
+    // formData.append("rating", rating);
+    // formData.append("subrating", subrating);
+    // formData.append("description", description);
+    // formData.append("starttimmediately", starttimmediately);
     formData.append("email", email);
-    formData.append("mobile", mobile);
+    formData.append("mobileNumber", mobile);
+    formData.append('questionAnswerPair',JSON.stringify(questionAnswerPair))
 
-    // try {
-    //   // Make a POST request to the API endpoint
-    //   await axios.post("http://localhost:3001/upload", formData);
+    try {
+      // Make a POST request to the API endpoint
+      await axios.post("http://localhost:6500/api/applyInternshipApplication", formData);
 
-    //   showToast("Application Submitted Successfully", "success");
+      showToast("Application Submitted Successfully", "success");
 
-    //   // Clear sessionStorage and navigate to the success page or perform any other action
-    //   sessionStorage.clear();
-    //   nextStep(); // or navigate to another success page
-    // } catch (error) {
-    //   console.error("Error submitting form:", error);
-    //   showToast("Failed to submit application", "error");
-    // }
+      console.log(profile)
+      console.log(subprofile)
+      console.log(resume)
+      console.log(questionAnswerPair)
+      console.log(email)
+      console.log(mobile)
+      // Clear sessionStorage and navigate to the success page or perform any other action
+      sessionStorage.clear();
+      nextStep(); // or navigate to another success page
+    }catch (error) {
+      console.error("Error submitting form:", error);
+    
+      if (error.response) {
+        // The request was made and the server responded with a status code
+        // that falls out of the range of 2xx
+        console.error("Server responded with status code:", error.response.status);
+        console.error("Response data:", error.response.data);
+      } else if (error.request) {
+        // The request was made but no response was received
+        console.error("No response received from the server");
+      } else {
+        // Something happened in setting up the request that triggered an Error
+        console.error("Error setting up the request:", error.message);
+      }
+    
+      showToast("Failed to submit application", "error");
+    }
+    
     showToast("Application Submitted Successfully!",'success');
     nextStep();
   };

@@ -282,7 +282,7 @@
           flex-direction: column;
           align-items: flex-start;
           gap: 13px;
-          margin-left: 2.03125vw;
+          margin-left: 2.6vw;
           margin-top: 2.4074vh;
 
           .h3 {
@@ -325,6 +325,7 @@
             margin-top: 1.204vh;
             display: flex;
             align-items: center;
+
             gap: 7px;
 
             img {
@@ -877,7 +878,7 @@
     }
   }
   .footer{
-    margin-top: -5vh;
+    margin-top: 52vh;
   }
 }
 
@@ -1378,6 +1379,9 @@
         margin-top: 3vh;
         width: 100vw;
       }
+    }
+    .footer{
+      margin-top: -5vh;
     }
   }
 }

@@ -32,10 +32,10 @@ import negotiationImg from "../../../public/assets/negotiations-removebg-preview
 
 export const ITProfileData = 
 [
-    "UI/UX Design Intern",
-    "Frontend Development Intern",
+    "UI/UX Designer Intern",
+    "Frontend Developer Intern",
     "DevOps Intern",
-    "Backend Development Intern"
+    "Backend Developer Intern"
 ]
 
 export const NonITProfileData = 
@@ -43,7 +43,7 @@ export const NonITProfileData =
     "Human Resource Management Intern",
     "Social Media Marketing Intern",
     "Digital Marketing and Branding Intern",
-    "Business Development"
+    "Business Development Intern"
 ]
  export const proficiencyContent ={
     "IT":{

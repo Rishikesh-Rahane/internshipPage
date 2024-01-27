@@ -273,7 +273,7 @@
   flex-direction: column;
   align-items: flex-start;
   gap: 13px;
-  margin-left: 2.6vw;
+  margin-left: 2.03125vw;
   margin-top: 2.4074vh;
 }
 .main-container .cards-section .profile-cards .inner-card-container .card-contents .h3 {
@@ -812,7 +812,7 @@
   position: absolute;
 }
 .main-container .footer {
-  margin-top: 52vh;
+  margin-top: -5vh;
 }
 
 @media only screen and (min-width: 1023px) {
@@ -1271,8 +1271,5 @@
   .main-container .application-form-section .form-section {
     margin-top: 3vh;
     width: 100vw;
-  }
-  .main-container .footer {
-    margin-top: -5vh;
   }
 }/*# sourceMappingURL=profile.css.map */
