@@ -76,8 +76,8 @@ export default function Form() {
 
     const questionAnswerPair = [
       {
-        question:"Are you a college-student?",
-        answer:college
+        question: "Are you a college-student?",
+        answer: college,
       },
       // {
       //   question:<>{getProficiencyContent(profile, subprofile)}</>,
@@ -88,14 +88,16 @@ export default function Form() {
       //   answer:subrating
       // },
       {
-        question:"Have you read the job description and are you interested in this unpaid internship opportunity?",
-        answer:description
+        question:
+          "Have you read the job description and are you interested in this unpaid internship opportunity?",
+        answer: description,
       },
       {
-        question:" Can you start immediately? We are looking to fill this position as soon as possible.",
-        answer:starttimmediately
-      }
-    ]
+        question:
+          " Can you start immediately? We are looking to fill this position as soon as possible.",
+        answer: starttimmediately,
+      },
+    ];
     const formData = new FormData();
     formData.append("preferredProfile", profile);
     formData.append("preferredSubProfile", subprofile);
@@ -107,30 +109,36 @@ export default function Form() {
     // formData.append("starttimmediately", starttimmediately);
     formData.append("email", email);
     formData.append("mobileNumber", mobile);
-    formData.append('questionAnswerPair',JSON.stringify(questionAnswerPair))
+    formData.append("questionAnswerPair", JSON.stringify(questionAnswerPair));
 
     try {
       // Make a POST request to the API endpoint
-      await axios.post("http://localhost:6500/api/applyInternshipApplication", formData);
+      await axios.post(
+        "http://localhost:6500/api/applyInternshipApplication",
+        formData
+      );
 
       showToast("Application Submitted Successfully", "success");
 
-      console.log(profile)
-      console.log(subprofile)
-      console.log(resume)
-      console.log(questionAnswerPair)
-      console.log(email)
-      console.log(mobile)
+      console.log(profile);
+      console.log(subprofile);
+      console.log(resume);
+      console.log(questionAnswerPair);
+      console.log(email);
+      console.log(mobile);
       // Clear sessionStorage and navigate to the success page or perform any other action
       sessionStorage.clear();
       nextStep(); // or navigate to another success page
-    }catch (error) {
+    } catch (error) {
       console.error("Error submitting form:", error);
-    
+
       if (error.response) {
         // The request was made and the server responded with a status code
         // that falls out of the range of 2xx
-        console.error("Server responded with status code:", error.response.status);
+        console.error(
+          "Server responded with status code:",
+          error.response.status
+        );
         console.error("Response data:", error.response.data);
       } else if (error.request) {
         // The request was made but no response was received
@@ -139,11 +147,11 @@ export default function Form() {
         // Something happened in setting up the request that triggered an Error
         console.error("Error setting up the request:", error.message);
       }
-    
+
       showToast("Failed to submit application", "error");
     }
-    
-    showToast("Application Submitted Successfully!",'success');
+
+    showToast("Application Submitted Successfully!", "success");
     nextStep();
   };
 
@@ -157,10 +165,7 @@ export default function Form() {
   };
   const nextStep = () => {
     if (step === 2 && !subprofile) {
-      showToast(
-        "Please select Sub Profile before proceeding",
-        "error"
-      );
+      showToast("Please select Sub Profile before proceeding", "error");
       return;
     }
     // Check if resume is uploaded in the third step
@@ -352,11 +357,15 @@ export default function Form() {
     nextStep();
   };
 
-  const getProficiencyContent = (profile, subprofile) => {
-    return proficiencyContent[profile] &&
-      proficiencyContent[profile][subprofile]
-      ? proficiencyContent[profile][subprofile]
-      : "Please Select the Profile Once again By Reloading the page!";
+  const  getProficiencyContent = () => {
+    console.log("Profile in getProficiencyContent:", profile);
+  console.log("Subprofile in getProficiencyContent:", subprofile);
+
+    const content =
+      proficiencyContent[profile]?.[subprofile] || "Default value if not found";
+      console.log("Content in getProficiencyContent:", content);
+
+    return content;
   };
   const handleChange = (value) => {
     setMobile(value);
@@ -399,7 +408,7 @@ export default function Form() {
     setSubRating(value);
     nextStep();
   };
-  
+
   const handleViewResume = () => {
     // Check if resume is available
     if (resume) {
@@ -463,7 +472,7 @@ export default function Form() {
   });
 
   return (
-    <div className="main-container-form" >
+    <div className="main-container-form">
       <form
         onSubmit={(e) => e.preventDefault()}
         encType="multipart/form-data"
@@ -581,7 +590,6 @@ export default function Form() {
                           <p
                             onClick={() => selectSubProfile(nonitprofile)}
                             className="itprofile-para"
-                            
                           >
                             {nonitprofile}
                           </p>
@@ -683,9 +691,11 @@ export default function Form() {
               <h1 className="resume-heading rating-resume-heading">
                 Apply For {subprofile + "ship"}
               </h1>
-              <p className="profile-proeficiency">
-                {getProficiencyContent(profile, subprofile)}
-              </p>
+              {profile && subprofile && (
+                <p className="profile-proeficiency">
+                  {getProficiencyContent(profile, subprofile)}
+                </p>
+              )}
               <p className="proficiency-range">
                 1 - Very Less <br /> 10 - Excellent
               </p>
@@ -870,7 +880,10 @@ export default function Form() {
                   style={{ marginLeft: "2px" }}
                 >
                   Mobile Number <br />{" "}
-                  <p style={{ marginTop: "0.9259vh"}} className="mobile-calling">
+                  <p
+                    style={{ marginTop: "0.9259vh" }}
+                    className="mobile-calling"
+                  >
                     (Calling)
                   </p>
                 </label>
@@ -907,7 +920,10 @@ export default function Form() {
                   </button>
                 </>
               </div>
-              <h1 className="review-heading review-top-heading" style={{marginTop:"12vh"}}>
+              <h1
+                className="review-heading review-top-heading"
+                style={{ marginTop: "12vh" }}
+              >
                 Review Application for {subprofile + "ship"}
               </h1>
               <div className="details-summary">
@@ -989,19 +1005,19 @@ export default function Form() {
                       </i>
                       <p className="resume-name">{resume.name}</p>
                       <i className="resume-icon">
-                          <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            width="40"
-                            height="41"
-                            viewBox="0 0 40 41"
-                            fill="none"
-                          >
-                            <path
-                              d="M26.6667 3.48438H13.3333C7.5 3.48438 5 6.81771 5 11.8177V28.4844C5 33.4844 7.5 36.8177 13.3333 36.8177H26.6667C32.5 36.8177 35 33.4844 35 28.4844V11.8177C35 6.81771 32.5 3.48438 26.6667 3.48438ZM13.3333 20.5677H20C20.6833 20.5677 21.25 21.1344 21.25 21.8177C21.25 22.501 20.6833 23.0677 20 23.0677H13.3333C12.65 23.0677 12.0833 22.501 12.0833 21.8177C12.0833 21.1344 12.65 20.5677 13.3333 20.5677ZM26.6667 29.7344H13.3333C12.65 29.7344 12.0833 29.1677 12.0833 28.4844C12.0833 27.801 12.65 27.2344 13.3333 27.2344H26.6667C27.35 27.2344 27.9167 27.801 27.9167 28.4844C27.9167 29.1677 27.35 29.7344 26.6667 29.7344ZM30.8333 15.5677H27.5C24.9667 15.5677 22.9167 13.5177 22.9167 10.9844V7.65104C22.9167 6.96771 23.4833 6.40104 24.1667 6.40104C24.85 6.40104 25.4167 6.96771 25.4167 7.65104V10.9844C25.4167 12.1344 26.35 13.0677 27.5 13.0677H30.8333C31.5167 13.0677 32.0833 13.6344 32.0833 14.3177C32.0833 15.001 31.5167 15.5677 30.8333 15.5677Z"
-                              fill="#EDE7FF"
-                            />
-                          </svg>
-                        </i>
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="40"
+                          height="41"
+                          viewBox="0 0 40 41"
+                          fill="none"
+                        >
+                          <path
+                            d="M26.6667 3.48438H13.3333C7.5 3.48438 5 6.81771 5 11.8177V28.4844C5 33.4844 7.5 36.8177 13.3333 36.8177H26.6667C32.5 36.8177 35 33.4844 35 28.4844V11.8177C35 6.81771 32.5 3.48438 26.6667 3.48438ZM13.3333 20.5677H20C20.6833 20.5677 21.25 21.1344 21.25 21.8177C21.25 22.501 20.6833 23.0677 20 23.0677H13.3333C12.65 23.0677 12.0833 22.501 12.0833 21.8177C12.0833 21.1344 12.65 20.5677 13.3333 20.5677ZM26.6667 29.7344H13.3333C12.65 29.7344 12.0833 29.1677 12.0833 28.4844C12.0833 27.801 12.65 27.2344 13.3333 27.2344H26.6667C27.35 27.2344 27.9167 27.801 27.9167 28.4844C27.9167 29.1677 27.35 29.7344 26.6667 29.7344ZM30.8333 15.5677H27.5C24.9667 15.5677 22.9167 13.5177 22.9167 10.9844V7.65104C22.9167 6.96771 23.4833 6.40104 24.1667 6.40104C24.85 6.40104 25.4167 6.96771 25.4167 7.65104V10.9844C25.4167 12.1344 26.35 13.0677 27.5 13.0677H30.8333C31.5167 13.0677 32.0833 13.6344 32.0833 14.3177C32.0833 15.001 31.5167 15.5677 30.8333 15.5677Z"
+                            fill="#EDE7FF"
+                          />
+                        </svg>
+                      </i>
                     </div>
                     <div className="upload-right-section">
                       <button
@@ -1017,42 +1033,72 @@ export default function Form() {
               <div className="question-summary">
                 <h3 className="question-heading">Questions</h3>
                 <div className="question-edit-frame">
-                   <p className="college-para">
-                    Are you a college-student <span  className="span">{college}</span> 
+                  <p className="college-para">
+                    Are you a college-student{" "}
+                    <span className="span">{college}</span>
                   </p>
-                  <Image src={Create} onClick={() => setStep(4)} className="editicon edit" />
+                  <Image
+                    src={Create}
+                    onClick={() => setStep(4)}
+                    className="editicon edit"
+                  />
                 </div>
                 <div className="question-edit-frame">
                   <p className="college-para">
-                    {getProficiencyContent(profile, subprofile)}  <span className="span">{rating}</span>
-                    
+                    {getProficiencyContent(profile, subprofile)}{" "}
+                    <span className="span">{rating}</span>
                   </p>
-                  <Image src={Create} onClick={() => setStep(5)} className="editicon edit" />
+                  <Image
+                    src={Create}
+                    onClick={() => setStep(5)}
+                    className="editicon edit"
+                  />
                 </div>
                 <div className="question-edit-frame">
                   <p className="college-para">
-                    Rate your proficiency in {subprofile} on a scale of 1 to 10. <span className="span">{subrating}</span> 
+                    Rate your proficiency in {subprofile} on a scale of 1 to 10.{" "}
+                    <span className="span">{subrating}</span>
                   </p>
-                  <Image src={Create} onClick={() => setStep(6)} className="editicon edit" />
+                  <Image
+                    src={Create}
+                    onClick={() => setStep(6)}
+                    className="editicon edit"
+                  />
                 </div>
                 <div className="question-edit-frame">
                   <p className="college-para">
                     Have you read the job description and are you interested in
-                    this unpaid internship opportunity? <span className="span">{description}</span>  
+                    this unpaid internship opportunity?{" "}
+                    <span className="span">{description}</span>
                   </p>
-                  <Image src={Create} onClick={() => setStep(7)} className="editicon edit" />
+                  <Image
+                    src={Create}
+                    onClick={() => setStep(7)}
+                    className="editicon edit"
+                  />
                 </div>
                 <div className="question-edit-frame">
                   <p className="college-para desc-para-clg">
                     Can you start immediately? We are looking to fill this
-                    position as soon as possible. <span className="span">{starttimmediately}</span>
+                    position as soon as possible.{" "}
+                    <span className="span">{starttimmediately}</span>
                   </p>
-                  <Image src={Create} onClick={() => setStep(8)} className="editicon edit" />
+                  <Image
+                    src={Create}
+                    onClick={() => setStep(8)}
+                    className="editicon edit"
+                  />
                 </div>
               </div>
               <div className="submit-section">
-                <p onClick={discardHandler} className="discard-button">Discard</p>
-                <button type="submit" onClick={submitHandler} className="submit-button">
+                <p onClick={discardHandler} className="discard-button">
+                  Discard
+                </p>
+                <button
+                  type="submit"
+                  onClick={submitHandler}
+                  className="submit-button"
+                >
                   Submit Application
                 </button>
               </div>
